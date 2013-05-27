@@ -1,0 +1,19 @@
+@import url("common.css");
+
+.container {
+    margin-left: 20%;
+    padding: 0px 10px;
+    width: 1024px;
+}
+
+#dataTable {
+    margin-top: 0px;
+}
+
+#tableContainer {
+    float: left;
+}
+
+#chart {
+    float: left;
+}

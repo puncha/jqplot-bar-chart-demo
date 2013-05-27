@@ -1,0 +1,33 @@
+body {
+}
+
+header {
+    text-align: center;
+}
+
+.left_nav {
+    float: left;
+    width: 300px;
+}
+
+.linkButton {
+    width: 400px;
+    margin: 7px;
+}
+
+#chart {
+    height: 500px;
+    width: 600px;
+}
+
+#tableTitle, table caption {
+    font-weight: 900;
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.bucketLink {
+    color:yellow !important;
+    text-decoration: underline !important;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Demo For CI </title>
+    <script class="include" type="text/javascript" src="./javascripts/underscore-min.js"></script>
+    <script class="include" type="text/javascript" src="./javascripts/jquery.min.js"></script>
+    <script class="include" type="text/javascript" src="./javascripts/util.js"></script>
+    <link rel="stylesheet" type="text/css" href="./plugins/jquery-ui-1.10.3.custom/css/ui-darkness/jquery-ui-1.10.3.custom.min.css" id="ui-theme" />
+    <script class="include" type="text/javascript" src="./plugins/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="./plugins/jqplot/customizedStyle.css">
+    <link rel="stylesheet" type="text/css" href="./plugins/jqplot/jquery.jqplot.min.css">
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="./plugins/jqplot/excanvas.min.js"></script><![endif]-->
+    <script class="include" type="text/javascript" src="./plugins/jqplot/jquery.jqplot.min.js"></script>
+    <script class="include" type="text/javascript" src="./plugins/jqplot/plugins/jqplot.highlighter.min.js"></script>
+    <script class="include" type="text/javascript" src="./plugins/jqplot/plugins/jqplot.cursor.min.js"></script>
+    <script type="text/javascript" src="./plugins/jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script type="text/javascript" src="./plugins/jqplot/plugins/jqplot.donutRenderer.min.js"></script>
+    <script type="text/javascript" src="./plugins/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="./plugins/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="./plugins/jqplot/plugins/jqplot.pointLabels.min.js"></script>
+    <script class="code" type="text/javascript">
+        $(document).ready(function () {
+
+            // [FullBld, IncBld, FullBld, IncBld,...]
+            var section_acdb = [10.3, 5.3, 9, 4.5, 8, 4];
+            var section_accore = [20.5, 4, 20, 3.5, 25, 5];
+            var section_coreapps = [50, 50, 52, 52, 44, 44];
+            var data = [section_acdb, section_accore, section_coreapps];
+
+            if (data != "") {
+                var opt = {
+                    stackSeries: true,
+                    seriesDefaults: {
+                        renderer: $.jqplot.BarRenderer,
+                        rendererOptions: {
+                            barMargin: 30,
+                            barPadding: 4,
+                            groups: 3
+                        },
+                        pointLabels: { show: true }
+                    },
+                    axes: {
+                        xaxis: {
+                            renderer: $.jqplot.CategoryAxisRenderer,
+                            ticks: ['Full Build#1', 'Inc. Build#1', 'Full Build#2', 'Inc. Build#2', 'Full Build#3', 'Inc. Build#3']
+                        },
+                        yaxis: {
+                            padMin: 0
+                        }
+                    },
+                    series: [{ label: 'acdb' }, { label: 'accore' }, { label: 'coreapps' }],
+                    legend: {
+                        show: true,
+                        location: 'ne',
+                        placement: 'outside'
+                    },
+                    animate: true,
+                    cursor: {
+                        show: true,
+                        zoom: true,
+                        showTooltip: false
+                    }
+                };
+
+                $.jqplot('chart', data, opt);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="chart"></div>
+    </div>
+</body>
+</html>
